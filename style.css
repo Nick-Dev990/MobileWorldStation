@@ -453,14 +453,15 @@ cart-item{
     font-size: 20px;
   }
   .cart-popup{
-    position: fixed;
-    left: 0; 
+    position: fixed; 
     top: 0;
+    right: -100%;
     width: 75%;
     height: 100%;
     display: none;
     background: rgba(0,0,0,0.5);
     transition: right 0.3s ease;
+    z-index: 1000;
   }
   .cart-popup.active{
     display: block;
