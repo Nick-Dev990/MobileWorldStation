@@ -453,14 +453,14 @@ cart-item{
     font-size: 20px;
   }
   .cart-popup{
-    width: 75%;
-    max-width: 300px;
-    height: 100%;
-    rigth: -100%;
-    top: 0;
     position: fixed;
+    left: 0; 
+    top: 0;
+    width: 75%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,0.5);
     transition: right 0.3s ease;
-    overflow-y: auto;
     border-radius: 10px 0 0 10px;
   }
   .cart-popup.active{
