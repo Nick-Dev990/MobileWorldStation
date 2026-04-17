@@ -437,14 +437,34 @@ cart-item{
     display: none;
   }
   .nav{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    overflow: hidden;
+  }
+  .search-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
   }
   .search-container input{
-    width: 140px;
-    font-size: 16px;
+    position: absolute;
+    right: 40px;
+    width: 0;
+    opacity: 0;
+    pointer-events: none;
+    font-size: 15px;
     padding: 6px;
+    transition: all 0.3s ease;
+  }
+  .search-container.active input{
+    width: 150px;
+    opacity: 1;
+    pointer-events: auto;
   }
   .search-icon{
     font-size: 20px;
@@ -473,7 +493,8 @@ cart-item{
   background: white;
   color: black;
   border-radius: 10px;
-  transition: right 0.3s ease; 
+  transition: right 0.3s ease;
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
 }
   header h1{
     font-size: 24px;
