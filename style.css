@@ -6,6 +6,7 @@ Body{
     background-color: white;
     color: white;
     overflow-x: hidden;
+    font-size: 18px;
 }
 nav{
     display: flex; 
@@ -416,6 +417,9 @@ cart-item{
 @media(max-width:768px){
   .nav-links{
     display: none;
+  }
+  h1{
+    font-size: 2.5rem;
   }
   .products{
     grid-template-columns: 1fr;
