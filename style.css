@@ -449,7 +449,21 @@ cart-item{
   }
 }
 @media (max-width: 400px){
-  .nav-links li:nth-child(n+4){
+  .nav-links a:nth-child(n+4){
     display: none;
+  }
+  .search-container{
+    width: 100%;
+    font-size: 16px;
+    padding: 8px;
+  }
+  .cart-icon{
+    font-size: 20px;
+    marging-left: 10px;
+  }
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
