@@ -479,7 +479,7 @@ cart-item{
     transition: all 0.3s;
   }
   .search-container.active input{
-    width: 110px;
+    width: 120px;
     opacity: 1;
     pointer-events: auto;
   }
@@ -489,7 +489,7 @@ cart-item{
   }
  .cart-icon{
    position: relative;
-   z-index: 1;
+   z-index: 3;
    flex-shrink: 0;
  }
  .cart-popup{
