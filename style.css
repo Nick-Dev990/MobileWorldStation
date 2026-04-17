@@ -456,10 +456,9 @@ cart-item{
     overflow: hidden;
   }
   .nav-right{
-    position: relative;
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 5px;
   }
   .search-container{
     position: relative;
@@ -472,12 +471,9 @@ cart-item{
     align-items: center;
   }
   .search-container input{
-    right: 25px;
     width: 0;
     opacity: 0;
-    pointer-events: none;
     font-size: 15px;
-    padding: 6px;
     transition: all 0.3s ease;
   }
   .search-container.active input{
