@@ -1,5 +1,6 @@
   html{
     scrollbar-gutter: stable;
+    overflow-x: hidden;
 }
 Body{
     font-family: 'Segoe UI', sans-serif;
@@ -453,12 +454,13 @@ cart-item{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 8px;
     overflow: hidden;
   }
   .nav-right{
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
   }
   .search-container{
     position: relative;
@@ -474,7 +476,7 @@ cart-item{
     width: 0;
     opacity: 0;
     font-size: 15px;
-    transition: all 0.3s ease;
+    transition: all 0.3s;
   }
   .search-container.active input{
     width: 110px;
@@ -482,11 +484,13 @@ cart-item{
     pointer-events: auto;
   }
   .search-icon{
-    font-size: 20px;
+    font-size: 16px;
+    cursor: pointer;
   }
  .cart-icon{
    position: relative;
-   z-index: 2;
+   z-index: 1;
+   flex-shrink: 0;
  }
  .cart-popup{
   position: fixed;
