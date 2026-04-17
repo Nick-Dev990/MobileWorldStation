@@ -448,3 +448,8 @@ cart-item{
     font-display: none;
   }
 }
+@media (max-width: 400px){
+  .nav-links li:nth-child(n+4){
+    display: none;
+  }
+}
