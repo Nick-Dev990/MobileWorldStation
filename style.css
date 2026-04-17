@@ -464,6 +464,9 @@ cart-item{
     border-radius: 10px 0 0 10px;
   }
   .cart-popup.active{
+    display: block;
+  }
+  .cart-popup.active .cart-content{
     right: 0;
   }
   header h1{
