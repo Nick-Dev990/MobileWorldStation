@@ -452,8 +452,14 @@ cart-item{
     gap: 5px;
     overflow: hidden;
   }
+  .nav-right{
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
   .search-container{
-    position: absolute;
+    position: relative;
     top: 0;
     right: 0;
     width: 90px;
@@ -464,7 +470,7 @@ cart-item{
   }
   .search-container input{
     position: absolute;
-    right: 40px;
+    right: 25px;
     width: 0;
     opacity: 0;
     pointer-events: none;
@@ -473,13 +479,17 @@ cart-item{
     transition: all 0.3s ease;
   }
   .search-container.active input{
-    width: 150px;
+    width: 120px;
     opacity: 1;
     pointer-events: auto;
   }
   .search-icon{
     font-size: 20px;
   }
+ .cart-icon{
+   position: relative;
+   z-index: 2;
+ }
  .cart-popup{
   position: fixed;
   top: 0;
