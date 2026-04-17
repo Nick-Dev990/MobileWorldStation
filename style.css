@@ -433,20 +433,31 @@ cart-item{
     font-size: 16px;
     padding: 10px;
   }
+  .nav-links{
+    display: flex;
+    gap: 8px;
+    flex: 1;
+  }
   .nav-links a:nth-child(n+4){
     display: none;
   }
+   .nav-links a{
+    font-size: 12px;
+    white-space: nowrap;
+  }
   .nav{
-    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 5px;
     overflow: hidden;
   }
   .search-container{
     position: absolute;
     top: 0;
     right: 0;
+    width: 90px;
+    font-size: 12px;
     height: 100%;
     display: flex;
     align-items: center;
