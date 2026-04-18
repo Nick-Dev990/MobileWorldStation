@@ -510,6 +510,7 @@ cart-item{
   height: 100%;
   display: none;
   background: rgba(0,0,0,0.5);
+  z-index: 999;
 }
 .cart-popup.active{
   display: block;
@@ -520,7 +521,7 @@ cart-item{
 .cart-content{
   position: fixed;
   top: 0;
-  right: -320px;
+  right: -300px;
   width: 300px;
   height: 100%;
   background: white;
@@ -528,6 +529,7 @@ cart-item{
   border-radius: 10px;
   transition: right 0.3s ease;
   box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
   header h1{
     font-size: 24px;
