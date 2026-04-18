@@ -455,7 +455,7 @@ cart-item{
     justify-content: space-between;
     align-items: center;
     gap: 8px;
-    overflow: visible;
+    overflow: hidden;
   }
   .nav-right{
     display: flex;
