@@ -268,13 +268,13 @@ header{
 }
 #display-img{
   width: 100%;
-  max-height: 250px;
+  max-height: 230px;
   object-fit: contain;
 }
 #display-desc{
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
-  line-height: 1.4;
+  line-height: 1.2;
 }
 #product-display button{
   padding: 12px 20px;
