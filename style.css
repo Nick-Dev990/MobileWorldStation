@@ -503,7 +503,7 @@ cart-item{
    flex-shrink: 0;
  }
  .cart-popup{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -518,9 +518,9 @@ cart-item{
   right: 0;
 }
 .cart-content{
-  position: absolute;
+  position: fixed;
   top: 0;
-  right: -300px;
+  right: -320px;
   width: 300px;
   height: 100%;
   background: white;
