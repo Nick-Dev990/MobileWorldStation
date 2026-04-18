@@ -520,7 +520,7 @@ cart-item{
 .cart-content{
   position: absolute;
   top: 0;
-  right: 100px;
+  right: -100px;
   width: 60%;
   height: 100%;
   background: white;
