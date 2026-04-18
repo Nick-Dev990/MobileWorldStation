@@ -518,7 +518,7 @@ cart-item{
   right: 0;
 }
 .cart-content{
-  position: absolute;
+  position: fixed;
   top: 0;
   right: -100px;
   width: 60%;
