@@ -87,25 +87,19 @@ window.openProduct=function(name, price, img, desc){
 
 function toggleSearch(){
     const container=document.querySelector(".search-container");
-    const navLinks=document.querySelectorAll(".nav-Links a");
+    const nav=document.querySelector(".nav");
+    
     container.classList.toggle("active");
+    nav.classList.toggle("search-active");
 
     const input=document.getElementById("search-input");
 
     if (container.classList.contains("active")){
         input.focus();
-    if (navLinks.length>=3){
-        navLinks[navLinks.length-1].style.display="none";
-        navLinks[navLinks.length-2].style.display="none";
-     }
     }else{
         input.value="";
         searchProducts();
         document.getElementById("search-results").innerHTML="";
-
-        navLinks.forEach(link=>{
-            link.style.display="inline-block";
-        });
     }
 }
 
