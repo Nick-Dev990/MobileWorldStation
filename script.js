@@ -87,6 +87,7 @@ window.openProduct=function(name, price, img, desc){
 
 function toggleSearch(){
     const container=document.querySelector(".search-container");
+    const navLinks=document.querySelectorAll(".nav-links a");
     const nav=document.querySelector(".nav");
     
     container.classList.toggle("active");
