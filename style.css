@@ -466,7 +466,6 @@ cart-item{
   .search-container{
     position: relative;
     width: auto;
-    max-width: 35px;
     font-size: 12px;
     height: 100%;
     display: flex;
