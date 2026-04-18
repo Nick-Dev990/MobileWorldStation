@@ -305,9 +305,10 @@ header{
   border-color: #999;
 }
 .features {
-  text-align: left;
+  text-align: center;
   margin: 15px 0;
   padding-left: 20px;
+  list-style: none;
 }
 
 .features li {
