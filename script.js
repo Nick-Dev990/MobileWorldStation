@@ -1,5 +1,18 @@
 let cart= JSON.parse(localStorage.getItem("cart"))||[];
 
+let toastTimeout;
+
+  function showToast() {
+    const toast = document.getElementById("toast");
+
+    clearTimeout(toastTimeout);
+    toast.classList.add("show");
+
+    toastTimeout = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 2000);
+  }
+
 window.addToCart=function (name, price, img){
     cart.push({name: name, price: price, img: img});
 
@@ -9,6 +22,8 @@ window.addToCart=function (name, price, img){
         setTimeout(()=>{
             counter.classList.remove("animate");
         }, 300);
+
+    showToast();
 
     displayCart();
   };
