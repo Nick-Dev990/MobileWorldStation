@@ -497,6 +497,7 @@ cart-item{
   border-radius: 5px;
   overflow-y: auto;
   z-index: 999;
+  }
  .cart-icon{
    position: relative;
    z-index: 3;
@@ -524,7 +525,7 @@ cart-item{
   right: -300px;
   width: 300px;
   height: 100%;
-  background: red;
+  background: white;
   color: black;
   border-radius: 10px;
   transition: right 0.3s ease;
