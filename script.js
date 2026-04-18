@@ -86,7 +86,7 @@ window.openProduct=function(name, price, img, desc){
     document.getElementById("display-title").innerText=name;
     document.getElementById("display-price").innerText="£"+price;
     document.getElementById("display-img").src=img;
-    document.getElementById("display-desc").innerText=desc;
+    document.getElementById("display-desc").innerHTML=desc;
 
 
     document.querySelector(".close").onclick=function(){
