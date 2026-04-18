@@ -51,7 +51,12 @@
 
         <section>
           <div class="products">
-            <div class="product" onclick="openProduct('Iphone 17 Pro', 1159.99,'images/iphone 17 Pro.jpg', 'OLED Screen 6.7 Inch, puce A18 Pro, triple camera 48MP, Great battery live')">
+            <div class="product" onclick="openProduct('Iphone 17 Pro', 1159.99,'images/iphone 17 Pro.jpg',
+                                                      `<ul class='features'>
+                                                       <li>OLED Screen 6.7 Inch</li>
+                                                       <li> puce A18 Pro</li>
+                                                       <li>triple camera 48MP</li>
+                                                       <li>Great battery live</li>`)">
             <img src="images/iphone 17 Pro.jpg">
             <h3>Iphone 17 Pro</h3>
             <p class="price">£1159.99</p>
@@ -279,8 +284,8 @@
 
               <img id="display-img" src="">
               <h2 id="display-title"></h2>
-              <p id="display-price"></p>
               <p id="display-desc"></p>
+              <p id="display-price"></p>
 
                   <button class="modal-add" onclick="addCurrentProductToCart()">Add to Cart</button>
                   <button class="Buy" onclick="buyNow(event)">Buy Now</button>
