@@ -87,15 +87,13 @@ window.openProduct=function(name, price, img, desc){
 
 function toggleSearch(){
     const container=document.querySelector(".search-container");
-    const navLinks=document.querySelectorAll(".nav-links a");
     const nav=document.querySelector(".nav");
-    
-    container.classList.toggle("active");
-    nav.classList.toggle("search-active");
-
     const input=document.getElementById("search-input");
+    
+    const isActive=container.classList.toggle("active");
+    nav.classList.toggle("search-active", isActive);
 
-    if (container.classList.contains("active")){
+    if (isActive){
         input.focus();
     }else{
         input.value="";
