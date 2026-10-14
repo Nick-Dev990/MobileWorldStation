@@ -1,322 +1,108 @@
- <!doctype html> 
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>E-commerce website</title>
-        <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f7f5" />
+    <meta name="description" content="Discover smartphones, tablets, wearables and everyday tech at MobileWorldStation." />
+    <title>MobileWorldStation — Tech that moves with you</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-  
   <body>
-       <nav class="nav">
-        <div class="nav-links">
-             <a href="#">Mobile Hall</a>
-             <a href="#about">Christmas shop</a>
-             <a href="#projects">Apple devices</a>
-             <a href="#contact">Android phones</a>
-             <a href="#">Case & Glass</a>
-             <a href="#">Charger</a>
-             <a href="#">Refurbished</a>
-        </div>
+    <div class="announcement"><span class="announcement-dot"></span> The latest tech, picked for everyday life <a href="#shop">Explore the collection <span aria-hidden="true">↗</span></a></div>
 
-      <div class="nav-right">
-        <div class="search-container">
-          <i class="search-icon" onclick="toggleSearch()">🔍</i>
-          <input type="text"
-                 id="search-input"
-                 placeholder="Search..."
-                 onkeyup="searchProducts()"
-            />
-          <div id="search-results"></div>
-         </div>
-
-        <div class="cart-icon" onclick="toggleCart()">🛒
-          <span id="cart-count" class="cart-badge">0</span>
-        </div>
-      </div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="MobileWorldStation home"><span class="brand-mark">M</span><span>mobile<span class="brand-light">world</span><b>station</b></span></a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation"><span></span><span></span></button>
+      <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+        <a href="#shop" data-nav-category="all">Shop all</a>
+        <a href="#shop" data-nav-category="phones">Phones</a>
+        <a href="#shop" data-nav-category="wearables">Wearables</a>
+        <a href="#shop" data-nav-category="tablets">Tablets</a>
+        <a href="#shop" data-nav-category="accessories">Accessories</a>
+        <a href="#why-us">Why us</a>
       </nav>
+      <div class="header-actions">
+        <label class="search-box" for="search-input"><span class="search-symbol" aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search products" autocomplete="off" /><kbd>⌘ K</kbd></label>
+        <button class="account-trigger" id="account-trigger" type="button" aria-label="Sign in or create account"><span class="account-symbol" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 19c.4-3.2 2.8-5.2 6.5-5.2s6.1 2 6.5 5.2"></path></svg></span><span>Sign in</span></button>
+        <button class="icon-button cart-trigger" id="cart-trigger" type="button" aria-label="Open shopping bag"><span class="cart-icon" aria-hidden="true"><svg class="cart-icon-svg" viewBox="0 0 24 24" focusable="false"><path d="M5.5 8.5h13l1 12h-15l1-12Z"></path><path d="M9 9V6.5a3 3 0 0 1 6 0V9"></path></svg></span><span class="cart-count" id="cart-count">0</span></button>
+      </div>
+    </header>
 
-        <header>
-          <h1>MobileWorldStation</h1>
-        </header>
-
-        <section>
-          <div class="box">
-           <div class="phone-contenaire">
-            <img src="https://th.bing.com/th/id/OIP.-dPL91HqkFhWiGk9k8AVTAHaEK?w=322&h=181&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="phone">
-            <img src="https://th.bing.com/th/id/OIP.j9GbDSQfGKnh4sWAsojAtwHaJg?w=138&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3" class="phone">
-            </div>
-           </div>
-        </section>
-
-        <section>
-          <div class="products">
-            <div class="product" onclick="openProduct('Iphone 17 Pro', 1159.99,'images/iphone 17 Pro.jpg',
-                                                      `<ul class='features'>
-                                                       <li>156.2mm x 74.7mm x 7.5 and 180g</li>
-                                                       <li>6.5 Inch OLED Super Retina XDR ProMotion(120Hz)</li>
-                                                       <li> puce A19 Pro, 6-core CPU & 5-core GPU, 12GB RAM</li>
-                                                       <li>256GB</li>`)">
-            <img src="images/iphone 17 Pro.jpg">
-            <h3>Iphone 17 Pro</h3>
-            <p class="price">£1159.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation(); addToCart('Iphone 17 Pro', 1159.99,'images/iphone 17 Pro.jpg')">Add To Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product" onclick="openProduct('Iphone Air', 799.99, 'images/iphone Air.jpg',
-                                                      `<ul class='features'>
-                                                       <li>156.2mm x 74.7mm x 5.64 and 165g</li>
-                                                       <li> 6.5 Inch OLED Super Retina XDR(120Hz)</li>
-                                                       <li> puce A19 Pro, 6-core CPU & 5-core GPU, 12GB RAM</li>
-                                                       <li>256GB</li>`)">
-            <img src="images/iphone Air.jpg" alt="product">
-            <h3>Iphone Air</h3>
-             <p class="price">£799.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Iphone Air',799.99, 'images/iphone Air.jpg')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-           </div>
-          </div>
-
-          <div class="product" onclick="openProduct('Iphone 17e', 599.99, 'images/iphone 17e.jpg',
-                                                     `<ul class='features'>
-                                                       <li>153.2mm x 73.7mm x 7.5 and 170g</li>
-                                                       <li> 6.1 Inch OLED Super Retina XDR(60Hz)</li>
-                                                       <li> puce A19 Bionic, 5-core CPU & 4-core GPU, 8GB RAM</li>
-                                                       <li>256GB</li>`)">
-            <img src="images/iphone 17e.jpg" alt="product">
-            <h3>Iphone 17e</h3>
-            <p class="price">£599.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Iphone 17e',599.99, 'images/iphone 17e.jpg')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product" onclick="openProduct('Crossbody Strap', 99.99, 'images/crossbody  Strap.jpg', '')">
-            <img src="images/crossbody  Strap.jpg" alt="product">
-            <h3>Crossbody Strap</h3>
-            <p class="price">£99.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Crossbody Strap',99.99,'images/crossbody  Strap.jpg')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product" onclick="openProduct('40W Dynamic Power adapter', 59.99, 'images/40W Dynamic power.jpg', '')">
-            <img src="images/40W Dynamic power.jpg" alt="product">
-            <h3>40W Dynamic Power adapter</h3>
-            <p class="price">£59.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('40W Dynamic Power adapter',59.99, 'images/40W Dynamic power.jpg')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26-ultra-s948-577114-sm-s948bzvgeub-thumb-550747375?$200_200_PNG$" alt="product">
-            <h3>Galaxy S26 Ultra</h3>
-            <p class="price">£1249.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Galaxy S26 Ultra',1249.99, 'https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26-ultra-s948-577114-sm-s948bzvgeub-thumb-550747375?$200_200_PNG$')">Add to cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26-s947-578750-sm-s947bzvgeub-thumb-550901725?$200_200_PNG$ alt="product">
-             <h3>Galaxy S26+</h3>
-            <p class="price">£789.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Galaxy S26',789.99,'https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-s26-s947-578750-sm-s947bzvgeub-thumb-550901725?$200_200_PNG$')">Add to cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-         <div class="product">
-           <img src="https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-buds4-r640-579822-sm-r640nzkaeub-thumb-551034371?$200_200_PNG$" alt="product">
-            <h3>Galaxy Bubs4 pro</h3>
-            <p class="price">£259.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Galaxy Bubs4 Pro',259.99,'https://images.samsung.com/is/image/samsung/p6pim/uk/s2602/gallery/uk-galaxy-buds4-r640-579822-sm-r640nzkaeub-thumb-551034371?$200_200_PNG$')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://images.samsung.com/is/image/samsung/p6pim/uk/2407/gallery/uk-galaxy-ring-q500-514541-sm-q5kaph-thumb-542720182?$200_200_PNG$" alt="product">
-             <h3>Galaxy Ring</h3>
-            <p class="price">£129.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Galaxy Ring',129.99,'https://images.samsung.com/is/image/samsung/p6pim/uk/2407/gallery/uk-galaxy-ring-q500-514541-sm-q5kaph-thumb-542720182?$200_200_PNG$')">Add to cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://images.samsung.com/is/image/samsung/p6pim/uk/f2507/gallery/uk-galaxy-watch8-l320-sm-l320ndaaeua-thumb-547705503?$200_200_PNG$" alt="product">
-            <h3>Galaxy Watch8 (Bluetooth 40mm)</h3>
-             <p class="price">£249.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Galaxy Watch8 (Bluetooth 40mm)',249.99,'https://images.samsung.com/is/image/samsung/p6pim/uk/f2507/gallery/uk-galaxy-watch8-l320-sm-l320ndaaeua-thumb-547705503?$200_200_PNG$')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/spring-2025-huawei-innovative-product-launch/mate-series/shelf-huawei-mate-xt-ultimate-design.png" alt="product">
-            <h3>Huawei XT Ultimate</h3>
-            <p class="price">£1699.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Huawei XT Ultimate',1699.99, 'https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/spring-2025-huawei-innovative-product-launch/mate-series/shelf-huawei-mate-xt-ultimate-design.png')">Add to cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/winter-2024-new-product-launch/phones-new/images/pura-series/shelf-huawei-pura70-pro-white.png" alt="product">
-           <h3>Huawei Pura 70</h3>
-            <p class="price">£599.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Huawei Pura 70',599.99, 'https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/winter-2024-new-product-launch/phones-new/images/pura-series/shelf-huawei-pura70-pro-white.png')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-            <div class="product">
-            <img src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/compare/pura70-ultra-compare-green.png">
-            <h3>Huawei Pura 70 Ultra</h3>
-            <p class="price">£649.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Huawei Pura 70 Pro',649.99, 'https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/compare/pura70-ultra-compare-green.png')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://img01.huaweifile.com/eu/uk/huawei/pms/uomcdn/GBHW/pms/202505/gbom/6942103155062/428_428_4D6676C0A180B72C3169029DE582830Amp.png" alt="product">
-            <h3>Watch Fit 4 Pro Green</h3>
-            <p class="price">£219.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Watch Fit 4 Pro Green',219.99, 'https://img01.huaweifile.com/eu/uk/huawei/pms/uomcdn/GBHW/pms/202505/gbom/6942103155062/428_428_4D6676C0A180B72C3169029DE582830Amp.png')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/audio-v5/0919-2025-huawei-innovative-product-launch/product-shelf-and-pop-up/freebuds-series/freebuds7i.jpg" alt="product">
-            <h3>Huawei FreeBuds 7i</h3>
-            <p class="price">£239.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Huawei FreeBuds 7i',239.99, 'https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/audio-v5/0919-2025-huawei-innovative-product-launch/product-shelf-and-pop-up/freebuds-series/freebuds7i.jpg')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-            </div>
-
-            <div class="product">
-            <img src="images/apple watch serie 11.jpg" alt="product">
-            <h3>Apple Watch serie 11</h3>
-            <p class="price">£369.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Apple Watch serie 11',369.99, 'images/apple watch serie 11.jpg')">Add to cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/winter-2024-new-product-launch/phones-new/images/mate-series/shelf-huawei-mate-x6.png" alt="product">
-             <h3>Huawei Mate X6</h3>
-            <p class="price">£899.99</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Huawei Mate X6',899.99, 'https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/plp-x/phones/winter-2024-new-product-launch/phones-new/images/mate-series/shelf-huawei-mate-x6.png')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="images/iphone 17 pro tech woven.png" alt="product">
-            <h3>Iphone 17 Pro Techwoven Case with MagSafe</h3>
-            <p class="price">£10</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Iphone 17 Pro Techwoven Case with MagSafe',10, 'images/iphone 17 pro tech woven.png')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="images/iphone 17e silicone case.png" alt="product">
-            <h3>Iphone 17e Silicone Case</h3>
-            <p class="price">£8</p>
-            <div class="stars"></div>
-              <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Iphone 17e Silicone Case',8, 'images/iphone 17e silicone case.png')">Add to cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
-
-          <div class="product">
-            <img src="images/Iphone Air Case with MagSafe.png" alt="product">
-           <h3>Iphone Air Case With MagSafe</h3>
-            <p class="price">£5</p>
-            <div class="stars"></div>
-            <div class="buttons">
-            <button class="add-to-cart" onclick="event.stopPropagation();addToCart('Iphone Air Case With MagSafe',5, 'images/Iphone Air Case with MagSafe.png')">Add to Cart</button>
-            <button class="Buy" onclick="event.stopPropagation(); buyNow(event)">Buy Now</button>
-            </div>
-          </div>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> A better way to shop tech</p>
+          <h1 id="hero-title">Good tech.<br /><em>Good energy.</em></h1>
+          <p class="hero-description">The devices you love, the little things that make them yours. Find your next favourite right here.</p>
+          <div class="hero-actions"><a class="button button-dark" href="#shop">Shop the collection <span aria-hidden="true">↗</span></a><a class="quiet-link" href="#why-us">The MWS difference <span aria-hidden="true">↓</span></a></div>
+          <div class="hero-proof"><div class="avatar-stack" aria-hidden="true"><span>M</span><span>W</span><span>S</span></div><p><strong>Thoughtful tech,</strong><br />made easy to find.</p><span class="proof-divider"></span><p><strong>15+</strong><br />hand-picked essentials</p></div>
         </div>
-        </section>
-
-        <div id="product-display" class="display">
-          <div class="display-content">
-             <span class="close">&times;</span>
-
-              <img id="display-img" src="">
-              <h2 id="display-title"></h2>
-              <p id="display-desc"></p>
-              <p id="display-price"></p>
-
-                  <button class="modal-add" onclick="addCurrentProductToCart()">Add to Cart</button>
-                  <button class="Buy" onclick="buyNow(event)">Buy Now</button>
-          </div>
+        <div class="hero-art" aria-label="Featured Apple devices">
+          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
+          <div class="hero-label"><span>01 / 03</span><span>Meet your next upgrade</span></div>
+          <img class="hero-phone hero-phone-back" src="images/iphone Air.jpg" alt="iPhone Air" />
+          <img class="hero-phone hero-phone-front" src="images/iphone 17 Pro.jpg" alt="iPhone 17 Pro" />
+          <div class="hero-sticker"><span>NEW<br />SEASON</span><b>↗</b></div>
+          <a class="hero-product-link" href="#shop">Discover the latest iPhone <span aria-hidden="true">↗</span></a>
         </div>
+      </section>
 
-        <div id="cart-popup" class="cart-popup">
-          <div class="cart-content">
-            <div class="cart-header">
-            <h2>Your Cart</h2>
-            <span class="close-cart" onclick="toggleCart()"></span>
-            <button class="clear-cart" onclick="clearCart()">🗑️</button>
-            </div>
-            
-            <div id="cart-items"></div>
-            <h3 id="cart-total">Total:£0</h3>
-          </div>
+      <section class="trust-strip" id="why-us" aria-label="Shopping benefits"><div><span class="trust-icon">✳</span><p><strong>Curated essentials</strong><br />Only the good stuff</p></div><div><span class="trust-icon">↗</span><p><strong>Clear, fair pricing</strong><br />No checkout surprises</p></div><div><span class="trust-icon">♡</span><p><strong>Here to help</strong><br />Support when you need it</p></div><div><span class="trust-icon">⌂</span><p><strong>Made for real life</strong><br />Tech that fits your day</p></div></section>
+
+      <section class="shop-section" id="shop" aria-labelledby="shop-title">
+        <div class="section-heading"><div><p class="eyebrow"><span></span> Find your next favourite</p><h2 id="shop-title">The good stuff<span>.</span></h2></div><p class="section-aside">A considered collection of devices and accessories to keep you connected, powered up and moving.</p></div>
+        <div class="shop-toolbar">
+          <div class="category-tabs" role="group" aria-label="Filter by product category"><button class="category-tab is-active" type="button" data-category="all">Everything <span data-count="all"></span></button><button class="category-tab" type="button" data-category="phones">Phones <span data-count="phones"></span></button><button class="category-tab" type="button" data-category="wearables">Wearables <span data-count="wearables"></span></button><button class="category-tab" type="button" data-category="tablets">Tablets <span data-count="tablets"></span></button><button class="category-tab" type="button" data-category="accessories">Accessories <span data-count="accessories"></span></button></div>
+          <label class="sort-control">Sort by <select id="sort-select" aria-label="Sort products"><option value="featured">Featured</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option><option value="name">Name</option></select></label>
         </div>
+        <p class="results-summary" id="results-summary" aria-live="polite"></p>
+        <div class="product-grid" id="product-grid"></div>
+        <div class="empty-state" id="empty-state" hidden><span>⌕</span><h3>No matches just yet</h3><p>Try another search or browse the full collection.</p><button class="button button-dark" id="reset-search" type="button">Show everything</button></div>
+      </section>
 
-   <div id="toast"> Added✔️</div>
+      <section class="closing-banner"><div><p class="eyebrow"><span></span> Your everyday, upgraded</p><h2>Little things.<br /><em>Big difference.</em></h2><p>Pair your new device with the details that make it feel like yours.</p><a class="button button-light" href="#shop" data-jump-category="accessories">Shop accessories <span aria-hidden="true">↗</span></a></div><div class="banner-image"><img src="images/Iphone Air Case with MagSafe.png" alt="iPhone Air case with MagSafe" loading="lazy" /><span class="banner-orbit"></span><span class="banner-caption">Make it yours <b>✳</b></span></div></section>
+    </main>
 
-  <script src="script.js"></script>
+    <footer class="site-footer"><a class="brand brand-footer" href="#top"><span class="brand-mark">M</span><span>mobile<span class="brand-light">world</span><b>station</b></span></a><p>Good tech for wherever life takes you.</p><span>© <span id="current-year"></span> MobileWorldStation</span><a href="#top" class="back-top">Back to top ↑</a></footer>
+
+    <div class="overlay" id="overlay" hidden></div>
+    <aside class="cart-drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+      <div class="drawer-header"><div><p class="eyebrow">Your picks</p><h2 id="cart-title">Your bag <span id="bag-item-count">(0)</span></h2></div><button class="close-button" type="button" data-close-drawer aria-label="Close bag">×</button></div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-empty" id="cart-empty"><span>♡</span><h3>Your bag is taking a breather.</h3><p>Add something you love and it’ll show up here.</p><button class="button button-dark" type="button" data-close-drawer>Keep browsing</button></div>
+      <div class="cart-footer" id="cart-footer"><div class="subtotal"><span>Subtotal</span><strong id="cart-total">£0.00</strong></div><p>Shipping and taxes calculated at checkout.</p><button class="button button-dark checkout-button" id="checkout-button" type="button">Continue to checkout <span aria-hidden="true">↗</span></button><small>Demo shop — checkout is not connected.</small></div>
+    </aside>
+
+    <dialog class="product-dialog" id="product-dialog" aria-labelledby="dialog-title"><button class="close-button dialog-close" type="button" aria-label="Close product details">×</button><div class="dialog-image"><img id="dialog-image" src="" alt="" /></div><div class="dialog-copy"><p class="eyebrow" id="dialog-category"></p><h2 id="dialog-title"></h2><p class="dialog-price" id="dialog-price"></p><p class="dialog-description" id="dialog-description"></p><div class="detail-note"><span>✳</span><p>Thoughtfully selected for the details that make everyday tech feel better.</p></div><button class="button button-dark" id="dialog-add" type="button">Add to bag <span aria-hidden="true">↗</span></button></div></dialog>
+    <dialog class="account-dialog" id="account-dialog" aria-labelledby="account-title">
+      <button class="close-button account-close" type="button" aria-label="Close account window">×</button>
+      <div class="account-intro"><span class="brand-mark">M</span><p class="eyebrow"><span></span> Your MobileWorldStation account</p><h2 id="account-title">Good to have<br /><em>you here.</em></h2><p>Sign in or create an account to keep your shopping details together.</p></div>
+      <div class="account-panel">
+        <div class="account-tabs" role="tablist" aria-label="Account options"><button type="button" role="tab" id="signin-tab" aria-selected="true" aria-controls="signin-panel">Sign in</button><button type="button" role="tab" id="signup-tab" aria-selected="false" aria-controls="signup-panel">Create account</button></div>
+        <div class="auth-status" id="auth-status" role="status">Secure account access will be available when the site’s authentication server is connected.</div>
+        <button class="google-button" id="google-signin" type="button" disabled><span class="google-g" aria-hidden="true">G</span> Continue with Google</button>
+        <div class="auth-divider"><span>or use email</span></div>
+        <form class="auth-form" id="signin-panel" role="tabpanel" aria-labelledby="signin-tab" data-auth-action="login">
+          <label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required disabled /></label>
+          <label>Password<input type="password" name="password" autocomplete="current-password" placeholder="Enter your password" required disabled /></label>
+          <button class="button button-dark auth-submit" type="submit" disabled>Sign in <span aria-hidden="true">↗</span></button>
+        </form>
+        <form class="auth-form" id="signup-panel" role="tabpanel" aria-labelledby="signup-tab" data-auth-action="register" hidden>
+          <label>Your name<input type="text" name="name" autocomplete="name" placeholder="Your name" required disabled /></label>
+          <label>Email address<input type="email" name="email" autocomplete="email" placeholder="you@example.com" required disabled /></label>
+          <label>Create a password<input type="password" name="password" autocomplete="new-password" minlength="12" placeholder="At least 12 characters" required disabled /></label>
+          <button class="button button-dark auth-submit" type="submit" disabled>Create account <span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="privacy-note"><span aria-hidden="true">⌑</span> Passwords and Google tokens must be handled by the secure server, never saved in this browser.</p>
+      </div>
+    </dialog>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="auth-config.js" defer></script>
+    <script src="auth.js" defer></script>
   </body>
- 
+</html>
