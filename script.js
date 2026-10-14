@@ -204,6 +204,25 @@ document.querySelectorAll(".product-visual").forEach((element) => element.addEve
 
 document.querySelectorAll(".category-tab").forEach((tab) => tab.setAttribute("aria-pressed", String(tab.classList.contains("is-active"))));
 searchInput.addEventListener("input", renderProducts);
+const searchBox = document.getElementById("search-box");
+const searchToggle = document.getElementById("search-toggle");
+searchToggle.addEventListener("click", () => {
+  const canCollapse = window.matchMedia("(max-width: 720px)").matches;
+  const open = canCollapse ? !searchBox.classList.contains("is-active") : true;
+  searchBox.classList.toggle("is-active", open);
+  searchToggle.setAttribute("aria-expanded", String(open));
+  searchToggle.setAttribute("aria-label", open ? "Close search" : "Open search");
+  if (open) searchInput.focus();
+  else searchInput.blur();
+});
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    searchBox.classList.remove("is-active");
+    searchToggle.setAttribute("aria-expanded", "false");
+    searchToggle.setAttribute("aria-label", "Open search");
+    searchInput.blur();
+  }
+});
 sortSelect.addEventListener("change", renderProducts);
 document.getElementById("reset-search").addEventListener("click", () => {
   searchInput.value = "";
@@ -230,6 +249,9 @@ document.getElementById("current-year").textContent = new Date().getFullYear();
 document.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
+    searchBox.classList.add("is-active");
+    searchToggle.setAttribute("aria-expanded", "true");
+    searchToggle.setAttribute("aria-label", "Close search");
     searchInput.focus();
   }
   if (event.key === "Escape" && drawer.classList.contains("is-open")) setDrawerOpen(false);
