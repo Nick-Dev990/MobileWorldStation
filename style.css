@@ -43,3 +43,7 @@
   .search-box kbd{display:none}
   .search-suggestions{top:calc(100% + 5px);max-height:min(55vh,340px);border-radius:7px}
 }
+
+
+/* Prevent mobile browsers from zooming and widening the page when search is focused. */
+@media(max-width:720px){#search-input{font-size:16px}}
