@@ -203,23 +203,77 @@ document.querySelectorAll(".product-visual").forEach((element) => element.addEve
 }));
 
 document.querySelectorAll(".category-tab").forEach((tab) => tab.setAttribute("aria-pressed", String(tab.classList.contains("is-active"))));
-searchInput.addEventListener("input", renderProducts);
 const searchBox = document.getElementById("search-box");
 const searchToggle = document.getElementById("search-toggle");
-searchToggle.addEventListener("click", () => {
-  const canCollapse = window.matchMedia("(max-width: 720px)").matches;
-  const open = canCollapse ? !searchBox.classList.contains("is-active") : true;
-  searchBox.classList.toggle("is-active", open);
-  searchToggle.setAttribute("aria-expanded", String(open));
-  searchToggle.setAttribute("aria-label", open ? "Close search" : "Open search");
-  if (open) searchInput.focus();
-  else searchInput.blur();
+const searchSuggestions = document.getElementById("search-suggestions");
+function hideSearchSuggestions() {
+  searchSuggestions.hidden = true;
+  searchSuggestions.replaceChildren();
+}
+function renderSearchSuggestions() {
+  const query = searchInput.value.trim().toLowerCase();
+  searchSuggestions.replaceChildren();
+  if (!query) {
+    hideSearchSuggestions();
+    return;
+  }
+
+  const categoryMatches = [...new Set(products.map((product) => product.category))]
+    .filter((category) => category.includes(query))
+    .slice(0, 3);
+  categoryMatches.forEach((category) => {
+    const option = document.createElement("button");
+    option.type = "button";
+    option.className = "search-suggestion search-suggestion-category";
+    option.setAttribute("role", "option");
+    option.textContent = `Browse ${category}`;
+    option.addEventListener("click", () => {
+      activeCategory = category;
+      document.querySelectorAll(".category-tab").forEach((tab) => {
+        const active = tab.dataset.category === category;
+        tab.classList.toggle("is-active", active);
+        tab.setAttribute("aria-pressed", String(active));
+      });
+      searchInput.value = "";
+      renderProducts();
+      hideSearchSuggestions();
+      searchInput.focus();
+    });
+    searchSuggestions.append(option);
+  });
+
+  products.filter((product) => `${product.name} ${product.category} ${product.note}`.toLowerCase().includes(query))
+    .slice(0, 5)
+    .forEach((product) => {
+      const option = document.createElement("button");
+      option.type = "button";
+      option.className = "search-suggestion";
+      option.setAttribute("role", "option");
+      const name = document.createElement("span");
+      name.textContent = product.name;
+      const category = document.createElement("small");
+      category.textContent = product.category;
+      option.append(name, category);
+      option.addEventListener("click", () => {
+        searchInput.value = product.name;
+        renderProducts();
+        hideSearchSuggestions();
+        searchInput.focus();
+      });
+      searchSuggestions.append(option);
+    });
+  searchSuggestions.hidden = searchSuggestions.childElementCount === 0;
+}
+searchInput.addEventListener("input", () => {
+  renderProducts();
+  renderSearchSuggestions();
 });
+searchToggle.addEventListener("click", () => searchInput.focus());
+searchInput.addEventListener("focus", renderSearchSuggestions);
+searchInput.addEventListener("blur", () => window.setTimeout(hideSearchSuggestions, 120));
 searchInput.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
-    searchBox.classList.remove("is-active");
-    searchToggle.setAttribute("aria-expanded", "false");
-    searchToggle.setAttribute("aria-label", "Open search");
+    hideSearchSuggestions();
     searchInput.blur();
   }
 });
@@ -249,9 +303,6 @@ document.getElementById("current-year").textContent = new Date().getFullYear();
 document.addEventListener("keydown", (event) => {
   if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
     event.preventDefault();
-    searchBox.classList.add("is-active");
-    searchToggle.setAttribute("aria-expanded", "true");
-    searchToggle.setAttribute("aria-label", "Close search");
     searchInput.focus();
   }
   if (event.key === "Escape" && drawer.classList.contains("is-open")) setDrawerOpen(false);
