@@ -84,15 +84,6 @@ function renderProducts() {
   summary.textContent = `${visible.length} ${visible.length === 1 ? "item" : "items"} to explore`;
   emptyState.hidden = visible.length > 0;
   grid.hidden = visible.length === 0;
-  renderCategoryCounts();
-}
-
-function renderCategoryCounts() {
-  document.querySelectorAll("[data-count]").forEach((element) => {
-    const category = element.dataset.count;
-    const count = category === "all" ? products.length : products.filter((product) => product.category === category).length;
-    element.textContent = `(${count})`;
-  });
 }
 
 function addToCart(id) {
